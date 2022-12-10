@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { DatePickerAndroid, ScrollView, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DetailScreen from "./screens/DetailScreen";
 import HomeScreen from "./screens/HomeScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
@@ -10,15 +11,24 @@ import AddScreen from "./screens/AddScreen";
 import UserScreen from "./screens/User/UserScreen";
 import { useAuth } from './screens/context/AuthContext';
 import { AuthProvider } from './screens/context/AuthContext';
+import SignupScreen from './screens/User/SignupScreen';
+import LoginScreen from './screens/User/LoginScreen';
+
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
 function NavContainer() {
   // if user is logged in  show home page otherwise show welcome(signin/signup) page
   const {isLoggedin} = useAuth();
   return (
     <NavigationContainer>
       {!isLoggedin ? (
-        <WelcomeScreen />
+        <Stack.Navigator initialRouteName="Welcome">
+          <Stack.Screen name="Welcome" component={WelcomeScreen} />
+          <Stack.Screen name="Signup" component={SignupScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+        </Stack.Navigator>
       ) : (
         <Tab.Navigator>
           <Tab.Screen name="Home" component={HomeScreen} />

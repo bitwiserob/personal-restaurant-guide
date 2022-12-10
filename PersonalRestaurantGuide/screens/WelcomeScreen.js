@@ -7,9 +7,11 @@ import {
   Button,
   TouchableHighlight,
 } from "react-native";
-
+import { useNavigation } from '@react-navigation/native';
 import { colors } from "../app/colors";
-const WelcomeScreen = () => {
+
+const WelcomeScreen = ({navigation}) => {
+
   return (
     <ImageBackground
       style={{ flex: 1, padding: 20 }}
@@ -26,7 +28,9 @@ const WelcomeScreen = () => {
           style={[styles.button, { backgroundColor: colors.yellow }]}
           activeOpacity={0.6}
           underlayColor="#DDDDDD"
-          onPress={() => alert("Pressed!")}
+          onPress={() => {
+            navigation.navigate("Signup");
+          }}
         >
           <Text style={styles.text}> Sign Up</Text>
         </TouchableHighlight>
@@ -34,7 +38,9 @@ const WelcomeScreen = () => {
           style={[styles.button, { backgroundColor: colors.pink }]}
           activeOpacity={0.6}
           underlayColor="#DDDDDD"
-          onPress={() => alert("Pressed!")}
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
         >
           <Text style={styles.text}> Sign in</Text>
         </TouchableHighlight>
