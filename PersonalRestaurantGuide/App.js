@@ -11,7 +11,7 @@ import UserScreen from "./screens/User/UserScreen";
 
 const Tab = createBottomTabNavigator();
 export default function App() {
-  // if user is logged in home page otherwise show login/signup page
+  // if user is logged in  show home page otherwise show welcome(signin/signup) page
   const isLoggedin = false;
   return (
     <NavigationContainer>
