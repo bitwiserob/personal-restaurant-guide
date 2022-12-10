@@ -10,6 +10,9 @@ function authReducer(state, action) {
     case 'logout': {
       return {isLoggedIn: state.isLoggedIn = false}
     }
+    case 'signup': {
+        return {"Something":true}
+      }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }
