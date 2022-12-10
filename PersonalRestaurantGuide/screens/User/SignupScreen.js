@@ -1,3 +1,4 @@
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 const SignupScreen = () => {
     return (
         <View>

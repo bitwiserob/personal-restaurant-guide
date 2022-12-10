@@ -1,10 +1,9 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-
-const ShareScreen = () => {
+const AddScreen = () => {
     return (
         <View>
-            <Text>ShareScreen</Text>
+            <Text>AddScreen</Text>
         </View>
     );
 }
-export default ShareScreen;
+export default AddScreen
