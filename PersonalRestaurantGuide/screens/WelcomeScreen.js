@@ -6,18 +6,22 @@ import {
   ImageBackground,
   Button,
   TouchableHighlight,
+  Image,
 } from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 import { colors } from "../app/colors";
 
-const WelcomeScreen = ({navigation}) => {
-
+const WelcomeScreen = ({ navigation }) => {
   return (
     <ImageBackground
       style={{ flex: 1, padding: 20 }}
       source={require("../assets/background_homepage.jpg")}
     >
       <View style={styles.top}>
+        <Image
+          style={{ width: "20%", height: "20%", resizeMode: "contain" }}
+          source={require("../assets/restaurant.png")}
+        ></Image>
         <Text style={styles.title}>PERSONAL </Text>
         <Text style={styles.title}>RESTAURANT</Text>
         <Text style={styles.title}>GUIDE</Text>
@@ -52,7 +56,7 @@ const WelcomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   top: {
     alignItems: "center",
-    justifyContent: "center",
+    // justifyContent: "center",
     flex: 0.5,
   },
   title: {
