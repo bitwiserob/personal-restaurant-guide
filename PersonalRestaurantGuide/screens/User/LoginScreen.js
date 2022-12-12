@@ -61,8 +61,10 @@ const LoginScreen = () => {
           activeOpacity={0.6}
           underlayColor="#DDDDDD"
           onPress={() => {
-            dispatch({ type: "login" });
-            console.log(state);
+             // dispatch({ type: "login", payload: {
+            //   "userName":username,
+            //   "password": password
+            // }
           }}
         >
           <Text style={styles.text}> Sign in</Text>
@@ -93,7 +95,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   inputs: {
-    borderBottomWidth: "1%",
     borderColor: "white",
     marginVertical: "5%",
   },

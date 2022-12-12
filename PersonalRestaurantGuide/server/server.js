@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const DB_URL = "mongodb+srv://diemphuong1291:Di3mphuong@cluster0.rdmmjv6.mongodb.net/comp3074_project?retryWrites=true&w=majority"
+const DB_URL = "mongodb+srv://ffeerdous:Feerdaus12$@cluster0.au6ya1r.mongodb.net/EmployeesDb?retryWrites=true&w=majority"
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");
