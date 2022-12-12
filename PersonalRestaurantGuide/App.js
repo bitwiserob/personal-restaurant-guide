@@ -1,26 +1,34 @@
 import { StatusBar } from "expo-status-bar";
-import { DatePickerAndroid, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  DatePickerAndroid,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DetailScreen from "./screens/DetailScreen";
 import HomeScreen from "./screens/HomeScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import MapScreen from "./screens/MapScreen";
 import AddScreen from "./screens/AddScreen";
 import UserScreen from "./screens/User/UserScreen";
-import { useAuth } from './screens/context/AuthContext';
-import { AuthProvider } from './screens/context/AuthContext';
-import SignupScreen from './screens/User/SignupScreen';
-import LoginScreen from './screens/User/LoginScreen';
-
+import { useAuth } from "./screens/context/AuthContext";
+import { AuthProvider } from "./screens/context/AuthContext";
+import SignupScreen from "./screens/User/SignupScreen";
+import LoginScreen from "./screens/User/LoginScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 function NavContainer() {
   // if user is logged in  show home page otherwise show welcome(signin/signup) page
-  const {isLoggedin} = useAuth();
+
+  //const { isLoggedin } = useAuth();
+  const isLoggedin = true;
+
   return (
     <NavigationContainer>
       {!isLoggedin ? (
@@ -41,18 +49,13 @@ function NavContainer() {
   );
 }
 
-export default function App(){
-  return(
-    
+export default function App() {
+  return (
     <AuthProvider>
-      <NavContainer>
-
-      </NavContainer>
+      <NavContainer></NavContainer>
     </AuthProvider>
-    
-  )
+  );
 }
-
 
 const styles = StyleSheet.create({
   container: {
