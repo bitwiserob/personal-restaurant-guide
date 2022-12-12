@@ -11,6 +11,7 @@ import Restaurant from "./Restaurant/restaurant";
 import axios from "axios";
 
 const HomeScreen = () => {
+
   const [restaurantList, setRestaurant] = useState("")
   
   const getRestaurants = async () => {
@@ -36,6 +37,7 @@ const HomeScreen = () => {
           renderItem={(itemData) => {
             return (
               <Restaurant
+
               name={itemData.item.name}
               rating={itemData.item.rating}
               description={itemData.item.description}
