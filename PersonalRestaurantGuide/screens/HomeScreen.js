@@ -11,6 +11,7 @@ import Restaurant from "./Restaurant/restaurant";
 const HomeScreen = () => {
   // To DO
   // get restaurants list from backend api
+
   const restaurants = [
     {
       id: 1,
@@ -35,8 +36,6 @@ const HomeScreen = () => {
       picture: "",
     },
   ];
-
-
 
   return (
     <View style={styles.container}>
