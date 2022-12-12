@@ -70,7 +70,11 @@ const SignupScreen = () => {
           activeOpacity={0.6}
           underlayColor="#DDDDDD"
           onPress={() => {
-            dispatch({ type: "signup" });
+             // dispatch({ type: "login", payload: {
+            //   "userName":username,
+            //   "email":email,
+            //   "password": password
+            // }
             console.log(state);
           }}
         >
