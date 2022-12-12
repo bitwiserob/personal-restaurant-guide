@@ -26,6 +26,11 @@ const WelcomeScreen = ({ navigation }) => {
         <Text style={styles.title}>RESTAURANT</Text>
         <Text style={styles.title}>GUIDE</Text>
       </View>
+      <View style={{ alignSelf: "center" }}>
+        <Text style={styles.quote}>
+          Keep track of your favorite restaurants
+        </Text>
+      </View>
 
       <View style={styles.bottom}>
         <TouchableHighlight
@@ -57,25 +62,29 @@ const styles = StyleSheet.create({
   top: {
     alignItems: "center",
     // justifyContent: "center",
-    flex: 0.5,
+    flex: 1,
   },
   title: {
     fontSize: 30,
     color: colors.title,
   },
   bottom: {
-    flex: 0.5,
+    flex: 1,
     justifyContent: "center",
   },
   button: {
     flex: 0.12,
     borderRadius: 20,
     marginBottom: "5%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   text: {
-    textAlign: "center",
-    padding: 15,
     fontWeight: "bold",
+  },
+  quote: {
+    fontWeight: "300",
+    color: colors.title,
   },
 });
 
