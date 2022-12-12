@@ -11,22 +11,23 @@ import Restaurant from "./Restaurant/restaurant";
 import axios from "axios";
 
 const HomeScreen = () => {
+  const [restaurantList, setRestaurant] = useState("");
 
-  const [restaurantList, setRestaurant] = useState("")
-  
   const getRestaurants = async () => {
-    try{
-      const res = await fetch('http://localhost:8081/api/res/restaurants')
+    try {
+      const res = await fetch(
+        "https://personal-guide-restaurant.vercel.app/api/res/restaurants"
+      );
       const json = await res.json();
-      setRestaurant(json)
-    }catch(error){
+      setRestaurant(json);
+    } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     getRestaurants();
-  }, [])
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -37,11 +38,10 @@ const HomeScreen = () => {
           renderItem={(itemData) => {
             return (
               <Restaurant
-
-              name={itemData.item.name}
-              rating={itemData.item.rating}
-              description={itemData.item.description}
-              url={itemData.item.picture}
+                name={itemData.item.name}
+                rating={itemData.item.rating}
+                description={itemData.item.description}
+                url={itemData.item.picture}
               />
             );
           }}
