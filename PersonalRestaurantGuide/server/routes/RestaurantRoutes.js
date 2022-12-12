@@ -29,7 +29,11 @@ routes.get('/restaurants', async (req, res) => {
     "postal_code": "M5R 1M1",
     "phone_number": "000-000-0000",
     "rating": 0,
-    "picture": ""
+    "picture": "",
+    "coordinates": {
+        "latitude": 43.6753067,
+        "longitude": -79.412226
+    }
 }
 */
 //Create New Restaurant
@@ -116,7 +120,7 @@ routes.put('/restaurant/:id', async (req, res) => {
 //DELETE
 routes.delete('/restaurant', async (req, res) => {
     try {
-        const deletedRestaurant = await RestaurantModel.findByIdAndDelete(req.query.eid)
+        const deletedRestaurant = await RestaurantModel.findByIdAndDelete(req.query.id)
         if(!deletedRestaurant){
             res.status(400).send({message: "No Restaurant to Delete"})
         }

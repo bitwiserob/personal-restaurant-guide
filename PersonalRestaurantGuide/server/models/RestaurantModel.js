@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 //define schema
 const restaurantSchema = mongoose.Schema({
     name: String,
@@ -11,7 +10,11 @@ const restaurantSchema = mongoose.Schema({
     postal_code: String,
     phone_number: String,
     rating: Number,
-    picture: String
+    picture: String,
+    coordinates: {
+        latitude: Number,
+        longitude: Number
+    }
 })
 
 //creating model from schema
