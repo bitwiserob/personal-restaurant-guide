@@ -9,6 +9,8 @@ import {
 import Restaurant from "./Restaurant/restaurant";
 
 const HomeScreen = () => {
+  // To DO
+  // get restaurants list from backend api
   const restaurants = [
     {
       id: 1,
@@ -34,6 +36,8 @@ const HomeScreen = () => {
     },
   ];
 
+
+
   return (
     <View style={styles.container}>
       {/* <Text> Home Page</Text> */}
@@ -47,6 +51,8 @@ const HomeScreen = () => {
                 rating={itemData.item.rating}
                 description={itemData.item.description}
                 url={itemData.item.picture}
+                // showDetail={showDetailsScreen}
+                id={itemData.item.id}
               />
             );
           }}
