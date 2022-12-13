@@ -11,8 +11,10 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { AntDesign } from "@expo/vector-icons";
 import { colors } from "../app/colors";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
-const DetailScreen = ({ description, address, stars }) => {
+const DetailScreen = () => {
+  // const navigation = useNavigation();
   // To DO
   // get restaurant by id  from backend api
   const resto = {
@@ -32,7 +34,7 @@ const DetailScreen = ({ description, address, stars }) => {
 
   const Emptystars = () => {
     return (
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", justifyContent: "center" }}>
         <AntDesign style={styles.star} name="staro" />
         <AntDesign style={styles.star} name="staro" />
         <AntDesign style={styles.star} name="staro" />
@@ -41,21 +43,34 @@ const DetailScreen = ({ description, address, stars }) => {
       </View>
     );
   };
-  const calcStars = () => {
-    for (let index = 0; index < resto.rating; index++) {
-      element = <Ionicons name="star-outline" size={32} color="green" />;
-    }
-    return <View></View>;
-  };
+
   return (
     <View style={styles.container}>
       {/* top */}
-      <View style={{ flex: 1 }}></View>
+      <View style={{ flex: 1 }}>
+        <Image
+          source={{
+            uri: "https://www.yummymummykitchen.com/wp-content/uploads/2020/05/oranges-citrus-1-725x1088.jpg",
+          }}
+          style={{ flex: 1, borderRadius: "30%" }}
+        />
+      </View>
       {/* bottom */}
-      <View style={{ flex: 1, backgroundColor: "#ffebec" }}>
-        {/* fav and save */}
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#ffebec",
+          borderRadius: "30%",
+          padding: "10%",
+        }}
+      >
+        {/* fav and save and share */}
         <View
-          style={{ flexDirection: "row", justifyContent: "flex-end", flex: 1 }}
+          style={{
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            flex: 1,
+          }}
         >
           {isFavorite ? (
             <Pressable onPress={() => setFavorite(false)}>
@@ -75,6 +90,14 @@ const DetailScreen = ({ description, address, stars }) => {
               <Ionicons name="save-outline" size={32} color="green" />
             </Pressable>
           )}
+
+          <Pressable
+            onPress={() =>
+              console.log("  pressed sharing from details  screen")
+            }
+          >
+            <AntDesign size={32} name="sharealt" color="green" />
+          </Pressable>
         </View>
 
         {/* text */}
@@ -85,7 +108,7 @@ const DetailScreen = ({ description, address, stars }) => {
           <Text>{resto.province}</Text>
           <Text>{resto.postal_code}</Text>
         </View>
-        <View style={{ flex: 5, justifyContent: "flex-end" }}>
+        <View style={{ flex: 5 }}>
           <Emptystars />
           <TouchableHighlight
             style={[styles.button, { backgroundColor: colors.pink }]}

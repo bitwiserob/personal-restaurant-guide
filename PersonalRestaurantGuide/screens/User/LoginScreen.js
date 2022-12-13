@@ -18,7 +18,7 @@ const LoginScreen = () => {
   const { dispatch, state } = useAuth();
   return (
     <View style={styles.container}>
-      <View
+       <View
         style={{
           flex: 1,
           alignItems: "center",
@@ -61,11 +61,12 @@ const LoginScreen = () => {
           activeOpacity={0.6}
           underlayColor="#DDDDDD"
           onPress={() => {
-             // dispatch({ type: "login", payload: {
-            //   "userName":username,
-            //   "password": password
-            // }
-          }}
+            dispatch({ type: "login", payload: {
+             "username": username,
+             "password": password
+           }});
+           console.log('newstate ' +state);
+         }}
         >
           <Text style={styles.text}> Sign in</Text>
         </TouchableHighlight>
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   inputs: {
+    //borderBottomWidth: "1%",
     borderColor: "white",
     marginVertical: "5%",
   },

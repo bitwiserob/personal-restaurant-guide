@@ -18,6 +18,19 @@ const SignupScreen = () => {
   const { dispatch, state } = useAuth();
   return (
     <View style={styles.container}>
+      <View>
+      <Button title="Test"
+          onPress={() => {
+            dispatch({ type: "signup", payload: {
+             "username":username,
+             "email":email,
+             "password": password
+           }})
+         }}
+
+          ></Button>
+      </View>
+      
       <View
         style={{
           flex: 1,
@@ -69,17 +82,22 @@ const SignupScreen = () => {
           style={[styles.button]}
           activeOpacity={0.6}
           underlayColor="#DDDDDD"
-          onPress={() => {
-             // dispatch({ type: "login", payload: {
-            //   "userName":username,
-            //   "email":email,
-            //   "password": password
-            // }
-            console.log(state);
-          }}
+          oonPress={() => {
+            dispatch({ type: "signup", payload: {
+             "username":username,
+             "email":email,
+             "password": password
+           }})
+         }}
         >
+
           <Text style={styles.text}> Sign Up</Text>
+          
         </TouchableHighlight>
+    
+
+
+
       </View>
       <View
         style={{
@@ -107,7 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   inputs: {
-    borderBottomWidth: "1%",
+    //borderBottomWidth: "1%",
     borderColor: "white",
     marginVertical: "5%",
   },
