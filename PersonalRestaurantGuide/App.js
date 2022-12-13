@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -27,8 +28,8 @@ const Stack = createNativeStackNavigator();
 function NavContainer() {
   // if user is logged in  show home page otherwise show welcome(signin/signup) page
 
-  //const { isLoggedin } = useAuth();
-  const isLoggedin = true;
+  const { isLoggedin } = useAuth();
+  // const isLoggedin = true;
 
   return (
     <NavigationContainer>
@@ -40,11 +41,43 @@ function NavContainer() {
         </Stack.Navigator>
       ) : (
         <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Map" component={MapScreen} />
-          <Tab.Screen name="Add" component={AddScreen} />
-          <Tab.Screen name="User" component={UserScreen} />
-          <Stack.Screen name="Share" component={ShareScreen} />
+          <Tab.Screen
+            name="Home"
+            component={HomeScreen}            
+            options={{
+              tabBarIcon: () => (
+                <Image
+                  style={{height: 35, width:35}}
+                  source={require('./assets/home.png')                  
+                  }/>
+            ),             
+            }}
+          />
+          <Tab.Screen
+            name="Map"
+            component={MapScreen}            
+            options={{
+              tabBarIcon: () => (
+                <Image
+                  style={{height: 35, width:35}}
+                  source={require('./assets/map.png')                  
+                  }/>
+            ),             
+            }}
+          />
+
+          <Tab.Screen
+            name="About"
+            component={MapScreen}            
+            options={{
+              tabBarIcon: () => (
+                <Image
+                  style={{height: 35, width:35}}
+                  source={require('./assets/about.png')                  
+                  }/>
+            ),             
+            }}
+          />
         </Tab.Navigator>
       )}
     </NavigationContainer>
@@ -56,7 +89,7 @@ export default function App() {
     <AuthProvider>
        <NavContainer></NavContainer>
     </AuthProvider>
-    //<DetailScreen />
+    // <DetailScreen />
   );
 }
 

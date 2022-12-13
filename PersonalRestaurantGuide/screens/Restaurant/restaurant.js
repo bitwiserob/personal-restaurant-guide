@@ -1,7 +1,15 @@
 import { Image, StyleSheet, Text, View, Pressable } from "react-native";
-
-const Restaurant = ({ name, rating, description, url, showDetail, id }) => {
-  const showDetailsScreen = (id) => {
+import { useNavigation } from "@react-navigation/native";
+const Restaurant = ({
+  name,
+  rating,
+  description,
+  url,
+  showDetail,
+  id,
+  navigation,
+}) => {
+  const showDetailsScreen = (id, navigation) => {
     // To DO
     // get restaurant by id  from backend api
     const restaurant = {
@@ -12,11 +20,14 @@ const Restaurant = ({ name, rating, description, url, showDetail, id }) => {
       rating: 5,
       picture: "../assets/restaurantpic.jpeg",
     };
+    // TO DO navigate to detials screen
+    // navigation.navigate("Details");
+    console.log("TO do , navigate to details");
   };
   return (
     <Pressable
       style={({ pressed }) => pressed && styles.pressedItem}
-      onPress={() => showDetailsScreen(id)}
+      onPress={() => showDetailsScreen(id, navigation)}
     >
       <View
         style={{

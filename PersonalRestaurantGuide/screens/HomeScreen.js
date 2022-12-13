@@ -8,8 +8,9 @@ import {
   Image,
 } from "react-native";
 import Restaurant from "./Restaurant/restaurant";
+import axios from "axios";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [restaurantList, setRestaurant] = useState("");
 
   const getRestaurants = async () => {
@@ -41,10 +42,11 @@ const HomeScreen = () => {
                 rating={itemData.item.rating}
                 description={itemData.item.description}
                 url={itemData.item.picture}
+                navigation={navigation}
               />
             );
           }}
-          keyExtractor={(itemData) => itemData.id}
+          keyExtractor={(itemData) => itemData._id}
         />
       </View>
       <View></View>
