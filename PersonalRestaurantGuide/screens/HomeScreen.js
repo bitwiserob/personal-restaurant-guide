@@ -8,7 +8,6 @@ import {
   Image,
 } from "react-native";
 import Restaurant from "./Restaurant/restaurant";
-import axios from "axios";
 
 const HomeScreen = () => {
   const [restaurantList, setRestaurant] = useState("");

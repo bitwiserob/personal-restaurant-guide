@@ -27,8 +27,8 @@ const Stack = createNativeStackNavigator();
 function NavContainer() {
   // if user is logged in  show home page otherwise show welcome(signin/signup) page
 
-  const { isLoggedin } = useAuth();
-  // const isLoggedin = true;
+  //const { isLoggedin } = useAuth();
+  const isLoggedin = true;
 
   return (
     <NavigationContainer>
@@ -53,10 +53,10 @@ function NavContainer() {
 
 export default function App() {
   return (
-    // <AuthProvider>
-    //   <NavContainer></NavContainer>
-    // </AuthProvider>
-    <DetailScreen />
+    <AuthProvider>
+       <NavContainer></NavContainer>
+    </AuthProvider>
+    //<DetailScreen />
   );
 }
 
