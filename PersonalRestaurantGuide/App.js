@@ -44,6 +44,7 @@ function NavContainer() {
           <Tab.Screen name="Map" component={MapScreen} />
           <Tab.Screen name="Add" component={AddScreen} />
           <Tab.Screen name="User" component={UserScreen} />
+          <Stack.Screen name="Share" component={ShareScreen} />
         </Tab.Navigator>
       )}
     </NavigationContainer>
@@ -52,9 +53,10 @@ function NavContainer() {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <NavContainer></NavContainer>
-    </AuthProvider>
+    // <AuthProvider>
+    //   <NavContainer></NavContainer>
+    // </AuthProvider>
+    <DetailScreen />
   );
 }
 

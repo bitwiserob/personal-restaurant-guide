@@ -11,8 +11,10 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { AntDesign } from "@expo/vector-icons";
 import { colors } from "../app/colors";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
-const DetailScreen = ({ description, address, stars }) => {
+const DetailScreen = () => {
+  // const navigation = useNavigation();
   // To DO
   // get restaurant by id  from backend api
   const resto = {
@@ -62,7 +64,7 @@ const DetailScreen = ({ description, address, stars }) => {
           padding: "10%",
         }}
       >
-        {/* fav and save */}
+        {/* fav and save and share */}
         <View
           style={{
             flexDirection: "row",
@@ -88,7 +90,14 @@ const DetailScreen = ({ description, address, stars }) => {
               <Ionicons name="save-outline" size={32} color="green" />
             </Pressable>
           )}
-          <AntDesign size={32} name="sharealt" color="green" />
+
+          <Pressable
+            onPress={() =>
+              console.log("  pressed sharing from details  screen")
+            }
+          >
+            <AntDesign size={32} name="sharealt" color="green" />
+          </Pressable>
         </View>
 
         {/* text */}
