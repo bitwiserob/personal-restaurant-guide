@@ -52,7 +52,7 @@ const DetailScreen = () => {
           source={{
             uri: "https://www.yummymummykitchen.com/wp-content/uploads/2020/05/oranges-citrus-1-725x1088.jpg",
           }}
-          style={{ flex: 1, borderRadius: "30%" }}
+          style={{ flex: 1, borderRadius: 30 }}
         />
       </View>
       {/* bottom */}
@@ -60,8 +60,8 @@ const DetailScreen = () => {
         style={{
           flex: 1,
           backgroundColor: "#ffebec",
-          borderRadius: "30%",
-          padding: "10%",
+          borderRadius: 30,
+          padding: 10,
         }}
       >
         {/* fav and save and share */}
@@ -130,21 +130,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#d6e8dc",
-    padding: "5%",
+    padding: 15,
   },
   button: {
     flex: 0.5,
     borderRadius: 20,
-    marginVertical: "5%",
+    marginVertical: 10,
     alignItems: "center",
     justifyContent: "center",
   },
 
   star: {
-    marginLeft: "2%",
     fontSize: 50,
     color: "green",
-    marginLeft: "5%",
+    marginLeft: 15,
   },
 });
 export default DetailScreen;
