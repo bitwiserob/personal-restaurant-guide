@@ -19,6 +19,7 @@ import { useAuth } from "./screens/context/AuthContext";
 import { AuthProvider } from "./screens/context/AuthContext";
 import SignupScreen from "./screens/User/SignupScreen";
 import LoginScreen from "./screens/User/LoginScreen";
+import ShareScreen from "./screens/ShareScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -26,8 +27,8 @@ const Stack = createNativeStackNavigator();
 function NavContainer() {
   // if user is logged in  show home page otherwise show welcome(signin/signup) page
 
-  //const { isLoggedin } = useAuth();
-  const isLoggedin = true;
+  const { isLoggedin } = useAuth();
+  // const isLoggedin = true;
 
   return (
     <NavigationContainer>
@@ -43,19 +44,19 @@ function NavContainer() {
           <Tab.Screen name="Map" component={MapScreen} />
           <Tab.Screen name="Add" component={AddScreen} />
           <Tab.Screen name="User" component={UserScreen} />
+          <Stack.Screen name="Share" component={ShareScreen} />
         </Tab.Navigator>
       )}
     </NavigationContainer>
   );
 }
 
-
 export default function App() {
   return (
-    // <AuthProvider>
-    //   <NavContainer></NavContainer>
-    // </AuthProvider>
-    <DetailScreen />
+    <AuthProvider>
+      <NavContainer></NavContainer>
+    </AuthProvider>
+    // <DetailScreen />
   );
 }
 

@@ -26,7 +26,7 @@ function authReducer(state, action) {
 
 const postLogin = async(state, action) =>{
   console.log(action.payload + " payload is");
-  axios.post("http://localhost:8081/api/user/login", {
+  axios.post("https://personal-guide-restaurant.vercel.app/api/user/login", {
     "username": action.payload.username,
     "password": action.payload.password
   })
@@ -48,7 +48,7 @@ const postLogin = async(state, action) =>{
 const postSignup = async(state, action) => {
   console.log(action.type + " is");
   console.log(action.payload + " is");
-  axios.post("http://localhost:8081/api/user/signup", {
+  axios.post("https://personal-guide-restaurant.vercel.app/api/user/signup", {
     "username": action.payload.username,
     "email": action.payload.email,
     "password": action.payload.password,

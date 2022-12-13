@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   inputs: {
+    //borderBottomWidth: "1%",
     borderColor: "white",
     marginVertical: "5%",
   },
