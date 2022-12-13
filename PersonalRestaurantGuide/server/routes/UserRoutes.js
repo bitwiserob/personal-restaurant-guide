@@ -8,9 +8,9 @@ const routes = express.Router()
 
 /* 
 {
-"username": "p@p.com",
-"email": "p@p.com",
-"password": "password$123"
+"username": "admin",
+"email": "admin@emai.com",
+"password": "admin123"
 }
 */
 //Create new user

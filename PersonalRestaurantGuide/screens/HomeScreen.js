@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -7,39 +8,33 @@ import {
   Image,
 } from "react-native";
 import Restaurant from "./Restaurant/restaurant";
+import axios from "axios";
 
 const HomeScreen = () => {
-  const restaurants = [
-    {
-      id: 1,
-      name: "resto 1",
-      description:
-        "italiano restaurant  zfijhldljnavalvb abvlhvajklbav abvlvajkbavlj vaaaaaaf jhesfl hva ",
-      rating: 5,
-      picture: "../assets/restaurantpic.jpeg",
-    },
-    {
-      id: 2,
-      name: "resto 2",
-      description: " french restaurant afesgrddvfesby5u",
-      rating: 3,
-      picture: "",
-    },
-    {
-      id: 3,
-      name: "resto 3",
-      description: "dajfeosvffve vfjnonjvfnovfnfes",
-      rating: 4,
-      picture: "",
-    },
-  ];
+  const [restaurantList, setRestaurant] = useState("");
+
+  const getRestaurants = async () => {
+    try {
+      const res = await fetch(
+        "https://personal-guide-restaurant.vercel.app/api/res/restaurants"
+      );
+      const json = await res.json();
+      setRestaurant(json);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getRestaurants();
+  }, []);
 
   return (
     <View style={styles.container}>
       {/* <Text> Home Page</Text> */}
       <View>
         <FlatList
-          data={restaurants}
+          data={restaurantList}
           renderItem={(itemData) => {
             return (
               <Restaurant
