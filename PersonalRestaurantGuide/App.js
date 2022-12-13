@@ -19,6 +19,7 @@ import { useAuth } from "./screens/context/AuthContext";
 import { AuthProvider } from "./screens/context/AuthContext";
 import SignupScreen from "./screens/User/SignupScreen";
 import LoginScreen from "./screens/User/LoginScreen";
+import ShareScreen from "./screens/ShareScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -43,12 +44,12 @@ function NavContainer() {
           <Tab.Screen name="Map" component={MapScreen} />
           <Tab.Screen name="Add" component={AddScreen} />
           <Tab.Screen name="User" component={UserScreen} />
+          <Stack.Screen name="Share" component={ShareScreen} />
         </Tab.Navigator>
       )}
     </NavigationContainer>
   );
 }
-
 
 export default function App() {
   return (
