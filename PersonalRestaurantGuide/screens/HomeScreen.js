@@ -45,7 +45,7 @@ const HomeScreen = () => {
               />
             );
           }}
-          keyExtractor={(itemData) => itemData.id}
+          keyExtractor={(itemData) => itemData._id}
         />
       </View>
       <View></View>
