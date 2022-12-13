@@ -89,8 +89,6 @@ export default function App() {
     <AuthProvider>
       <NavContainer></NavContainer>
     </AuthProvider>
-    // <DetailScreen />
-
   );
 }
 
