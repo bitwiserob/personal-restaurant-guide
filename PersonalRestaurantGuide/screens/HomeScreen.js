@@ -9,8 +9,9 @@ import {
 } from "react-native";
 import Restaurant from "./Restaurant/restaurant";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [restaurantList, setRestaurant] = useState("");
 
   const getRestaurants = async () => {
@@ -42,6 +43,7 @@ const HomeScreen = () => {
                 rating={itemData.item.rating}
                 description={itemData.item.description}
                 url={itemData.item.picture}
+                navigation={navigation}
               />
             );
           }}
