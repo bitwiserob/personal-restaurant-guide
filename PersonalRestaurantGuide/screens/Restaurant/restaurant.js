@@ -22,6 +22,7 @@ const Restaurant = ({
     };
     // TO DO navigate to detials screen
     // navigation.navigate("Details");
+    console.log("TO do , navigate to details");
   };
   return (
     <Pressable
