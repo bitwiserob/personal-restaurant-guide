@@ -19,6 +19,7 @@ import { useAuth } from "./screens/context/AuthContext";
 import { AuthProvider } from "./screens/context/AuthContext";
 import SignupScreen from "./screens/User/SignupScreen";
 import LoginScreen from "./screens/User/LoginScreen";
+import ShareScreen from "./screens/ShareScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -51,10 +52,9 @@ function NavContainer() {
 
 export default function App() {
   return (
-    // <AuthProvider>
-    //   <NavContainer></NavContainer>
-    // </AuthProvider>
-    <DetailScreen />
+    <AuthProvider>
+      <NavContainer></NavContainer>
+    </AuthProvider>
   );
 }
 

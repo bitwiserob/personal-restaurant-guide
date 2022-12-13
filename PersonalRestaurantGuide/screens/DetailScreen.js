@@ -32,7 +32,7 @@ const DetailScreen = ({ description, address, stars }) => {
 
   const Emptystars = () => {
     return (
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", justifyContent: "center" }}>
         <AntDesign style={styles.star} name="staro" />
         <AntDesign style={styles.star} name="staro" />
         <AntDesign style={styles.star} name="staro" />
@@ -41,21 +41,34 @@ const DetailScreen = ({ description, address, stars }) => {
       </View>
     );
   };
-  const calcStars = () => {
-    for (let index = 0; index < resto.rating; index++) {
-      element = <Ionicons name="star-outline" size={32} color="green" />;
-    }
-    return <View></View>;
-  };
+
   return (
     <View style={styles.container}>
       {/* top */}
-      <View style={{ flex: 1 }}></View>
+      <View style={{ flex: 1 }}>
+        <Image
+          source={{
+            uri: "https://www.yummymummykitchen.com/wp-content/uploads/2020/05/oranges-citrus-1-725x1088.jpg",
+          }}
+          style={{ flex: 1, borderRadius: "30%" }}
+        />
+      </View>
       {/* bottom */}
-      <View style={{ flex: 1, backgroundColor: "#ffebec" }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#ffebec",
+          borderRadius: "30%",
+          padding: "10%",
+        }}
+      >
         {/* fav and save */}
         <View
-          style={{ flexDirection: "row", justifyContent: "flex-end", flex: 1 }}
+          style={{
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            flex: 1,
+          }}
         >
           {isFavorite ? (
             <Pressable onPress={() => setFavorite(false)}>
@@ -75,6 +88,7 @@ const DetailScreen = ({ description, address, stars }) => {
               <Ionicons name="save-outline" size={32} color="green" />
             </Pressable>
           )}
+          <AntDesign size={32} name="sharealt" color="green" />
         </View>
 
         {/* text */}
@@ -85,7 +99,7 @@ const DetailScreen = ({ description, address, stars }) => {
           <Text>{resto.province}</Text>
           <Text>{resto.postal_code}</Text>
         </View>
-        <View style={{ flex: 5, justifyContent: "flex-end" }}>
+        <View style={{ flex: 5 }}>
           <Emptystars />
           <TouchableHighlight
             style={[styles.button, { backgroundColor: colors.pink }]}
