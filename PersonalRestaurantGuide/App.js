@@ -54,10 +54,11 @@ function NavContainer() {
 
 export default function App() {
   return (
-    // <AuthProvider>
-    //   <NavContainer></NavContainer>
-    // </AuthProvider>
-    <HomeScreen />
+    <AuthProvider>
+      <NavContainer></NavContainer>
+    </AuthProvider>
+    // <DetailScreen />
+
   );
 }
 
