@@ -21,6 +21,7 @@ import { AuthProvider } from "./screens/context/AuthContext";
 import SignupScreen from "./screens/User/SignupScreen";
 import LoginScreen from "./screens/User/LoginScreen";
 import ShareScreen from "./screens/ShareScreen";
+import AboutScreen from "./screens/AboutScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -28,8 +29,8 @@ const Stack = createNativeStackNavigator();
 function NavContainer() {
   // if user is logged in  show home page otherwise show welcome(signin/signup) page
 
-  const { isLoggedin } = useAuth();
-  // const isLoggedin = true;
+  //const { isLoggedin } = useAuth();
+  const isLoggedin = true;
 
   return (
     <NavigationContainer>
@@ -68,7 +69,7 @@ function NavContainer() {
 
           <Tab.Screen
             name="About"
-            component={MapScreen}            
+            component={AboutScreen}            
             options={{
               tabBarIcon: () => (
                 <Image
